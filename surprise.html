@@ -5,19 +5,160 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>For Vivek — From Mantasha</title>
   <style>
-    body{font-family: Inter, system-ui, sans-serif; background:#fffefc; color:#0b1220; padding:28px; line-height:1.45;}
-    .wrap{max-width:720px; margin:22px auto; border-radius:12px; padding:28px; box-shadow:0 12px 30px rgba(2,6,23,.06); background:linear-gradient(180deg,#ffffff,#fbfbff);}
-    h1{font-size:28px; margin:0 0 6px;}
-    .sub{color:#6b7280; margin-bottom:18px;}
-    blockquote{margin:18px 0; padding-left:16px; border-left:3px solid #ffd166; color:#0b1220;}
-    .verse{margin:10px 0; font-weight:600;}
-    .note{background:#f8fafc;border-radius:8px;padding:12px;margin-top:16px;font-size:14px;color:#10203a;}
-    .btn{display:inline-block;margin-top:18px;background:#0b1220;color:#fff;padding:10px 16px;border-radius:10px;text-decoration:none;}
-    .small{font-size:13px;color:#475569;margin-top:12px;}
-    footer{margin-top:22px;color:#64748b;font-size:13px;text-align:right;}
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap');
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #fdf6f0, #e3f0ff);
+      color: #0b1220;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+
+    .wrap {
+      max-width: 760px;
+      margin: 60px auto;
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: 0 12px 40px rgba(0,0,0,.1);
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    h1 {
+      font-size: 30px;
+      margin-bottom: 6px;
+      background: linear-gradient(90deg, #ff8c94, #a29bfe);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .sub {
+      color: #6b7280;
+      margin-bottom: 18px;
+    }
+
+    blockquote {
+      margin: 20px 0;
+      padding-left: 16px;
+      border-left: 3px solid #ffafcc;
+      color: #374151;
+      font-style: italic;
+      animation: fadeIn 3s ease-in;
+    }
+
+    .verse {
+      margin: 24px 0 8px;
+      font-weight: 600;
+      color: #5a189a;
+    }
+
+    .note {
+      background: #fff0f6;
+      border-radius: 10px;
+      padding: 14px;
+      margin-top: 16px;
+      font-size: 14px;
+      color: #4a0e4e;
+      animation: fadeInUp 2s ease-in;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 24px;
+      background: linear-gradient(90deg, #5a189a, #ff8c94);
+      color: #fff;
+      padding: 12px 22px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(90, 24, 154, 0.3);
+    }
+
+    .small {
+      font-size: 13px;
+      color: #475569;
+      margin-top: 12px;
+    }
+
+    footer {
+      margin-top: 30px;
+      color: #64748b;
+      font-size: 13px;
+      text-align: right;
+    }
+
+    .photo-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .photo-gallery img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: transform 0.3s;
+    }
+    .photo-gallery img:hover {
+      transform: scale(1.1);
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+    @keyframes fadeInUp {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    /* Floating hearts */
+    .heart {
+      position: fixed;
+      bottom: -10px;
+      color: #ff8c94;
+      font-size: 20px;
+      animation: floatUp 6s linear infinite;
+      opacity: 0.7;
+    }
+    @keyframes floatUp {
+      0% {transform: translateY(0) scale(1);}
+      100% {transform: translateY(-110vh) scale(1.5); opacity: 0;}
+    }
   </style>
 </head>
 <body>
+
+  <div style="text-align:center; margin-top:20px;">
+  <button id="playButton" style="background:#0b1220; color:#fff; padding:10px 18px; border:none; border-radius:10px; cursor:pointer;">
+    🎵 Play Our Song
+  </button>
+</div>
+
+<iframe id="music" width="0" height="0"
+  src="https://www.youtube.com/embed/_ZwhiP0vIjs?start=130&autoplay=1&loop=1&playlist=_ZwhiP0vIjs"
+  frameborder="0" allow="autoplay">
+</iframe>
+
+<script>
+  document.getElementById("music").style.display = "none";
+  document.getElementById("playButton").addEventListener("click", function() {
+    document.getElementById("music").style.display = "block";
+    this.style.display = "none";
+  });
+</script>
+
   <div class="wrap">
     <h1>For Vivek — From Mantasha</h1>
     <div class="sub">ConstaCloud brought us together. This is a little memory I made from that cloud.</div>
@@ -34,32 +175,55 @@
     </div>
 
     <div class="verse">From ConstaCloud to You</div>
-    <p>We met through clouds, not skies or chance,<br>
+    <p>
+      We met through clouds, not skies or chance,<br>
       Two souls apart, yet caught in the same dance.<br>
       Your voice was the calm my chaos knew,<br>
-      A gentle echo that quietly grew.<br>
-      
+      A gentle echo that quietly grew.<br><br>
+
       ConstaCloud wasn’t kind, it tested my way,<br>
       But gave me the reason my heart chose to stay.<br>
       In that storm of work, deadlines, and blue,<br>
       I lost myself… only to find you.<br>
+    </p>
+
+    <div class="photo-gallery">
+      <img src="IMG_20251106_143106_104.jpg" alt="Memory 1">
+      <img src="IMG_20251106_143103_326.jpg" alt="Memory 2">
+    </div>
+
+    <a class="btn" href="#" onclick="document.getElementById('reveal').style.display='block'; this.style.display='none'; return false;">Reveal My Birthday Promise 💌</a>
+
+    <div id="reveal" style="display:none; margin-top:20px; animation: fadeInUp 1s;">
+      <p><strong>Birthday Promise:</strong></p>
+      <p>
+        I once disappeared without a reason, leaving a story half-written.<br>
+        And yet, when I returned, you opened the same page with a smile, not a question.<br>
+        Your kindness healed something I didn’t know was broken.<br>
+        So here’s my promise — I’ll never let fear write our pauses again.<br>
+        You deserve love that stays, not love that disappears.<br><br>
+        Happy Birthday, Vivek — from the girl who found her calm in your kindness, and her forever in your heart.
       </p>
-
-    <a class="btn" href="#" onclick="document.getElementById('reveal').style.display='block'; this.style.display='none'; return false;">Reveal My Birthday Promise</a>
-
-    <div id="reveal" style="display:none; margin-top:16px;">
-      <p><strong>Birthday Promise:</strong> <p><strong>Birthday Promise:</strong>  
-I once disappeared without a reason, leaving a story half-written.<br>  
-And yet, when I returned, you opened the same page with a smile, not a question.<br>
-Your kindness healed something I didn’t know was broken.<br>  
-So here’s my promise, I’ll never let fear write our pauses again.<br> 
-You deserve love that stays, not love that disappear.<br>  
-
-        Happy Birthday, Vivek from the girl who found her calm in your kindness, and her forever in your heart.</p>
-<p class="small">— Your BC Billi😼</p>
+      <p class="small">— Your BC Billi 😼</p>
     </div>
 
     <footer>Save this page if you wish — but keep this card in your wallet always.</footer>
   </div>
+
+  <!-- Floating Hearts Script -->
+  <script>
+    const hearts = ["💗","💞","💖","💘"];
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.textContent = hearts[Math.floor(Math.random()*hearts.length)];
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (4 + Math.random() * 3) + "s";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }
+    setInterval(createHeart, 700);
+  </script>
+
 </body>
 </html>
